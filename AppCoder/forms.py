@@ -18,3 +18,7 @@ class EditorialForm(forms.Form):
     fundacion = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     telefono = forms.CharField(max_length=15, required=False)
     email = forms.EmailField(required=False)
+
+class LibroSearchForm(forms.Form):
+    titulo = forms.CharField(max_length=200, required=False, label="Buscar por Título")
+    

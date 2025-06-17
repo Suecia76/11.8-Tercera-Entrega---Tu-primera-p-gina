@@ -1,9 +1,13 @@
 from django.shortcuts import render, redirect
 from .models import Autor, Editorial, Libro
+from .forms import LibroSearchForm
 
 def lista_libros(request):
+    form = LibroSearchForm(request.GET or None)
     libros = Libro.objects.all()
-    return render(request, 'AppCoder/libros/lista_libros.html', {'libros': libros})
+    if form.is_valid() and form.cleaned_data.get('titulo'):
+        libros = libros.filter(titulo__icontains=form.cleaned_data['titulo'])
+    return render(request, 'AppCoder/libros/lista_libros.html', {'libros': libros, 'form': form})
 
 def lista_autores(request):
     autores = Autor.objects.all()
