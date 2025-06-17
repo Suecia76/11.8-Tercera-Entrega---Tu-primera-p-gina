@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Autor Creado{% endblock %}
+{% block content %}
+<h1>Autor creado correctamente</h1>
+<p>Nombre: {{ autor.nombre }}</p>
+<p>Nacionalidad: {{ autor.nacionalidad }}</p>
+<p>Fecha de nacimiento: {{ autor.fecha_nacimiento }}</p>
+<a href="{% url 'lista_autores' %}" class="btn btn-primary">Volver a la lista</a>
+{% endblock %}

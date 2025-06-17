@@ -23,9 +23,9 @@ def crear_autor(request):
                       nacionalidad=request.POST.get('nacionalidad'),
                       fecha_nacimiento=request.POST.get('fecha_nacimiento'))
         autor.save()
-        return render(request, 'AppCoder/autor_creado.html', {'autor': autor})
+        return render(request, 'AppCoder/autores/autor_creado.html', {'autor': autor})
         
-    return render(request, 'AppCoder/crear_autor.html')
+    return render(request, 'AppCoder/autores/crear_autor.html')
 
 def crear_editorial(request):
     if request.method == 'POST':
@@ -51,4 +51,6 @@ def crear_libro(request):
         )
         libro.save()
         return render(request, 'AppCoder/libros/libro_creado.html', {'libro': libro})
-    return render(request, 'AppCoder/libros/crear_libros.html')
+    autores = Autor.objects.all()
+    editoriales = Editorial.objects.all()
+    return render(request, 'AppCoder/libros/crear_libros.html', {'autores': autores, 'editoriales': editoriales})

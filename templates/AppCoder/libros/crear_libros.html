@@ -8,11 +8,19 @@
         <label for="titulo" class="form-label">Título:</label>
         <input type="text" class="form-control" id="titulo" name="titulo" required>
 
-        <label for="autor" class="form-label">Autor (ID):</label>
-        <input type="number" class="form-control" id="autor" name="autor" required>
+        <label for="autor" class="form-label">Autor:</label>
+        <select class="form-control" id="autor" name="autor" required>
+            {% for autor in autores %}
+                <option value="{{ autor.id }}">{{ autor.nombre }}</option>
+            {% endfor %}
+        </select>
 
-        <label for="editorial" class="form-label">Editorial (ID):</label>
-        <input type="number" class="form-control" id="editorial" name="editorial" required>
+        <label for="editorial" class="form-label">Editorial:</label>
+        <select class="form-control" id="editorial" name="editorial" required>
+            {% for editorial in editoriales %}
+                <option value="{{ editorial.id }}">{{ editorial.nombre }}</option>
+            {% endfor %}
+        </select>
 
         <label for="fecha_publicacion" class="form-label">Fecha de Publicación:</label>
         <input type="date" class="form-control" id="fecha_publicacion" name="fecha_publicacion" required>

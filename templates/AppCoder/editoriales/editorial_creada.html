@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Editorial Creada{% endblock %}
+{% block content %}
+<h1>Editorial creada correctamente</h1>
+<p>Nombre: {{ editorial.nombre }}</p>
+<p>País: {{ editorial.pais }}</p>
+<p>Fundación: {{ editorial.fundacion }}</p>
+<a href="{% url 'lista_editoriales' %}" class="btn btn-primary">Volver a la lista de editoriales</a>
+{% endblock
