@@ -1,0 +1,19 @@
+{% extends "base.html" %} 
+{% block title %} ASD {% endblock %} 
+{% block content%}
+<h1>Crear Autores</h1>
+<form method="POST" action="{% url 'crear_autor' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required>
+
+        <label for="nacionalidad" class="form-label">Nacionalidad:</label>
+        <input type="text" class="form-control" id="nacionalidad" name="nacionalidad" required>
+
+        <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento:</label>
+        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required>
+
+        <input type="submit" value="Crear Autor" class="btn btn-primary mt-3">
+    </div>
+{% endblock %}

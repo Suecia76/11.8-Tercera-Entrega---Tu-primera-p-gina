@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de libros</title>
+  </head>
+  <body>
+    {% extends "base.html" %}
+    {% block title %}Lista de Libros{% endblock %}
+    {% block content %}
+    <h1>Lista de Libros</h1>
+    <a href="{% url 'crear_libro' %}" class="btn btn-success mb-3">Crear Libro</a>
+    <ul class="list-group">
+      {% for libro in libros %}
+        <li class="list-group-item">
+          {{ libro.titulo }} - {{ libro.autor.nombre }} ({{ libro.editorial.nombre }}) - Publicado: {{ libro.fecha_publicacion }} - ISBN: {{ libro.isbn }}
+        </li>
+      {% empty %}
+        <li class="list-group-item">No hay libros cargados.</li>
+      {% endfor %}
+    </ul>
+    {% endblock %}
+  </body>
+</html>

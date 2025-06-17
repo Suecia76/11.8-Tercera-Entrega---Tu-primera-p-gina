@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Lista de Editoriales{% endblock %}
+{% block content %}
+<h1>Lista de Editoriales</h1>
+<a href="{% url 'crear_editorial' %}" class="btn btn-success mb-3">Crear Editorial</a>
+<ul class="list-group">
+  {% for editorial in editoriales %}
+    <li class="list-group-item">
+      {{ editorial.nombre }} ({{ editorial.pais }}) - Fundación: {{ editorial.fundacion }}
+    </li>
+  {% empty %}
+    <li class="list-group-item">No hay editoriales cargadas.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
